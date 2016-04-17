@@ -190,7 +190,7 @@ public class WDLEvents {
 					WDL.saveContainerItems(WDL.windowContainer, horseChest, 0);
 					//I don't even know what this does, but it's part of the
 					//other method...
-					horseChest.func_110134_a(entityHorse);
+					horseChest.addInventoryChangeListener(entityHorse);
 					//Save the actual data value to the other horse.
 					ReflectionUtils.stealAndSetField(entityHorse, AnimalChest.class, horseChest);
 					WDLMessages.chatMessageTranslated(WDLMessageTypes.ON_GUI_CLOSED_INFO,
@@ -253,7 +253,7 @@ public class WDLEvents {
 				WDL.saveContainerItems(WDL.windowContainer, horseChest, 0);
 				//I don't even know what this does, but it's part of the
 				//other method...
-				horseChest.func_110134_a(entityHorse);
+				horseChest.addInventoryChangeListener(entityHorse);
 				//Save the actual data value to the other horse.
 				ReflectionUtils.stealAndSetField(entityHorse, AnimalChest.class, horseChest);
 				

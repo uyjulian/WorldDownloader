@@ -5,6 +5,7 @@ import java.io.IOException;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.client.resources.Language;
 import wdl.WDL;
 
 /**
@@ -53,8 +54,11 @@ public class GuiWDLAbout extends GuiScreen {
 				mcVersion));
 		list.addBlankLine();
 		
-		String currentLanguage = WDL.minecraft.getLanguageManager()
-				.getCurrentLanguage().toString();
+		Language currentLanguage_ = WDL.minecraft.getLanguageManager()
+				.getCurrentLanguage();
+		String currentLanguage = "";
+		if (currentLanguage_ != null)
+			currentLanguage = currentLanguage_.toString();
 		String translatorCredit = I18n.format("wdl.translatorCredit",
 				currentLanguage);
 		if (translatorCredit != null && !translatorCredit.isEmpty()) {
