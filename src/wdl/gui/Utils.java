@@ -122,7 +122,7 @@ class Utils {
 		Tessellator t = Tessellator.getInstance();
 		VertexBuffer b = t.getBuffer();
 		
-		mc.getTextureManager().bindTexture(Gui.optionsBackground);
+		mc.getTextureManager().bindTexture(Gui.OPTIONS_BACKGROUND);
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		
 		float textureSize = 32.0F;
@@ -163,7 +163,7 @@ class Utils {
 		GlStateManager.disableDepth();
 		byte padding = 4;
 		
-		mc.getTextureManager().bindTexture(Gui.optionsBackground);
+		mc.getTextureManager().bindTexture(Gui.OPTIONS_BACKGROUND);
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		
 		float textureSize = 32.0F;
@@ -337,7 +337,7 @@ class GuiSlider extends GuiButton {
 				this.displayString = I18n.format(text, getValue());
 			}
 
-			mc.getTextureManager().bindTexture(buttonTextures);
+			mc.getTextureManager().bindTexture(BUTTON_TEXTURES);
 			GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 			
 			if (this.enabled) {

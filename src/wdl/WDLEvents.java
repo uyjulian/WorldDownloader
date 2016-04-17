@@ -184,7 +184,7 @@ public class WDLEvents {
 					//Based off of EntityHorse.initHorseChest
 					HorseArmorType horseType = entityHorse.getType();
 					AnimalChest horseChest = new AnimalChest("HorseChest",
-							(entityHorse.isChested() && horseType.func_188600_f()) ? 17 : 2);
+							(entityHorse.isChested() && horseType.canBeChested()) ? 17 : 2);
 					horseChest.setCustomName(entityHorse.getName());
 					WDL.saveContainerItems(WDL.windowContainer, horseChest, 0);
 					//I don't know if it's a good idea to copy this, but I am...
@@ -245,7 +245,7 @@ public class WDLEvents {
 				//Based off of EntityHorse.initHorseChest
 				HorseArmorType horseType = entityHorse.getType();
 				AnimalChest horseChest = new AnimalChest("HorseChest",
-						(entityHorse.isChested() && horseType.func_188600_f()) ? 17 : 2);
+						(entityHorse.isChested() && horseType.canBeChested()) ? 17 : 2);
 				horseChest.setCustomName(entityHorse.getName());
 				WDL.saveContainerItems(WDL.windowContainer, horseChest, 0);
 				//I don't know if it's a good idea to copy this, but I am...
@@ -411,7 +411,7 @@ public class WDLEvents {
 		} else if (WDL.windowContainer instanceof ContainerBeacon) {
 			//func_180611_e returns the beacon's IInventory tileBeacon.
 			IInventory beaconInventory =
-					((ContainerBeacon)WDL.windowContainer).func_180611_e();
+					((ContainerBeacon)WDL.windowContainer).getTileEntity();
 			TileEntityBeacon savedBeacon = (TileEntityBeacon)te;
 			WDL.saveContainerItems(WDL.windowContainer, savedBeacon, 0);
 			WDL.saveInventoryFields(beaconInventory, savedBeacon);
@@ -438,7 +438,7 @@ public class WDLEvents {
 				pos.getZ() << 4)) {
 			return;
 		}
-		if (block == Blocks.noteblock) {
+		if (block == Blocks.NOTEBLOCK) {
 			TileEntityNote newTE = new TileEntityNote();
 			newTE.note = (byte)(param % 25);
 			WDL.worldClient.setTileEntity(pos, newTE);

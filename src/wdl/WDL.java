@@ -575,12 +575,12 @@ public class WDL {
 				WDLMessages.chatMessageTranslated(
 						WDLMessageTypes.ON_WORLD_LOAD,
 						"wdl.messages.onWorldLoad.spigot",
-						thePlayer.getClientBrand());
+						thePlayer.getServerBrand());
 			} else {
 				WDLMessages.chatMessageTranslated(
 						WDLMessageTypes.ON_WORLD_LOAD,
 						"wdl.messages.onWorldLoad.vanilla",
-						thePlayer.getClientBrand());
+						thePlayer.getServerBrand());
 			}
 			
 			startOnChange = false;
@@ -595,12 +595,12 @@ public class WDL {
 				WDLMessages.chatMessageTranslated(
 						WDLMessageTypes.ON_WORLD_LOAD,
 						"wdl.messages.onWorldLoad.spigot",
-						thePlayer.getClientBrand());
+						thePlayer.getServerBrand());
 			} else {
 				WDLMessages.chatMessageTranslated(
 						WDLMessageTypes.ON_WORLD_LOAD,
 						"wdl.messages.onWorldLoad.vanilla",
-						thePlayer.getClientBrand());
+						thePlayer.getServerBrand());
 			}
 			
 			if (startOnChange) {
@@ -1783,8 +1783,8 @@ public class WDL {
 	 */
 	public static boolean isSpigot() {
 		//getClientBrand() returns the server brand; blame MCP.
-		if (thePlayer != null && thePlayer.getClientBrand() != null) {
-			return thePlayer.getClientBrand().toLowerCase().contains("spigot");
+		if (thePlayer != null && thePlayer.getServerBrand() != null) {
+			return thePlayer.getServerBrand().toLowerCase().contains("spigot");
 		}
 		return false;
 	}

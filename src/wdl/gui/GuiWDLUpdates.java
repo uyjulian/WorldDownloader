@@ -99,8 +99,8 @@ public class GuiWDLUpdates extends GuiScreen {
 							this.release));
 					
 					mc.getSoundHandler().playSound(
-							PositionedSoundRecord.func_184371_a(
-									SoundEvents.ui_button_click, 1.0f));
+							PositionedSoundRecord.getMasterRecord(
+									SoundEvents.UI_BUTTON_CLICK, 1.0f));
 					return true;
 				}
 				return false;
