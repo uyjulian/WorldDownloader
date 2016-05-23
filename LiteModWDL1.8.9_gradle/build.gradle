@@ -24,7 +24,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.liteloader'
 apply plugin: 'org.spongepowered.mixin'
 
-version = "1.8.9a-beta1"
+version = "1.8.9a-beta2"
 group = "com.uyjulian.LiteModWDL" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "LiteModWDL"
 
