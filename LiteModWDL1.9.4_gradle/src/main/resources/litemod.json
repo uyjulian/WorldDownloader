@@ -1,0 +1,5 @@
+{
+    "name": "LitemodStub",
+    "mcversion": "1.9.4",
+    "classTransformerClasses": "com.uyjulian.LiteModWDL.EventTransformerWDL"
+}

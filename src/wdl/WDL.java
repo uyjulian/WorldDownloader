@@ -37,8 +37,8 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ReportedException;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.MinecraftException;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.IChunkLoader;
@@ -143,12 +143,12 @@ public class WDL {
 	/**
 	 * All tile entities that were saved manually, by chunk and then position.
 	 */
-	public static HashMap<ChunkCoordIntPair, Map<BlockPos, TileEntity>> newTileEntities = new HashMap<ChunkCoordIntPair, Map<BlockPos, TileEntity>>();
+	public static HashMap<ChunkPos, Map<BlockPos, TileEntity>> newTileEntities = new HashMap<ChunkPos, Map<BlockPos, TileEntity>>();
 	
 	/**
 	 * All entities that were downloaded, by chunk.
 	 */
-	public static HashMultimap<ChunkCoordIntPair, Entity> newEntities = HashMultimap.create();
+	public static HashMultimap<ChunkPos, Entity> newEntities = HashMultimap.create();
 	
 	/**
 	 * All of the {@link MapData}s that were sent to the client in the current
@@ -422,7 +422,7 @@ public class WDL {
 		WDL.minecraft.displayGuiScreen((GuiScreen) null);
 		WDL.minecraft.setIngameFocus();
 		chunkLoader = WDLChunkLoader.create(saveHandler, worldClient.provider);
-		newTileEntities = new HashMap<ChunkCoordIntPair,Map<BlockPos,TileEntity>>();
+		newTileEntities = new HashMap<ChunkPos,Map<BlockPos,TileEntity>>();
 		newEntities = HashMultimap.create();
 		newMapDatas = new HashMap<Integer, MapData>();
 
@@ -504,7 +504,7 @@ public class WDL {
 		windowContainer = thePlayer.openContainer;
 		overrideLastModifiedCheck = false;
 		
-		NetworkManager newNM = thePlayer.sendQueue.getNetworkManager();
+		NetworkManager newNM = thePlayer.connection.getNetworkManager();
 		
 		// Handle checking if the server changes here so that
 		// messages are loaded FIRST.
@@ -1367,7 +1367,7 @@ public class WDL {
 		int chunkX = pos.getX() / 16;
 		int chunkZ = pos.getZ() / 16;
 		
-		ChunkCoordIntPair chunkPos = new ChunkCoordIntPair(chunkX, chunkZ);
+		ChunkPos chunkPos = new ChunkPos(chunkX, chunkZ);
 		
 		if (!newTileEntities.containsKey(chunkPos)) {
 			newTileEntities.put(chunkPos, new HashMap<BlockPos, TileEntity>());

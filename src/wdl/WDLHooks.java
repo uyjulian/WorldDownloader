@@ -1,6 +1,7 @@
 package wdl;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -19,7 +20,6 @@ import net.minecraft.network.play.server.SPacketChat;
 import net.minecraft.network.play.server.SPacketCustomPayload;
 import net.minecraft.network.play.server.SPacketMaps;
 import net.minecraft.profiler.Profiler;
-import net.minecraft.util.CallableExt;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.storage.MapData;
@@ -355,12 +355,7 @@ public class WDLHooks {
 	 * @param report
 	 */
 	public static void onCrashReportPopulateEnvironment(CrashReport report) {
-		report.makeCategory("World Downloader Mod").addCrashSectionCallable("Info",
-			new CallableExt<String>() {
-				public String call() {
-					return WDL.getDebugInfo();
-				}
-			});
+		report.makeCategory("World Downloader Mod").addCrashSection("Info", WDL.getDebugInfo());
 	}
 
 	/**
