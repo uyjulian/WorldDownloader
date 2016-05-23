@@ -501,7 +501,7 @@ public class WDL {
 		windowContainer = thePlayer.openContainer;
 		overrideLastModifiedCheck = false;
 		
-		NetworkManager newNM = thePlayer.sendQueue.getNetworkManager();
+		NetworkManager newNM = thePlayer.connection.getNetworkManager();
 		
 		// Handle checking if the server changes here so that
 		// messages are loaded FIRST.
