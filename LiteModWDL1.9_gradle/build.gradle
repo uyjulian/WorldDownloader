@@ -37,7 +37,7 @@ minecraft {
 sourceSets {
     main {
         // Refmap declaration must match the refmap name specified in the json config
-        refMap = "mixins.example.refmap.json"
+        refMap = "mixins.LiteModWDL.refmap.json"
     }
 }
 
@@ -48,9 +48,8 @@ mixin {
 litemod {
     json {
         name = "LiteModWDL"
-        mcversion = "1.9.0"
-        classTransformerClasses = ["com.uyjulian.LiteModWDL.EventTransformerWDL"]
-        // mixinConfigs += "mixins.example.json"
+        mcversion = "1.9"
+        mixinConfigs += "mixins.LiteModWDL.json"
     }
 }
 
