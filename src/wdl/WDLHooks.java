@@ -354,6 +354,7 @@ public class WDLHooks {
 	public static void onCrashReportPopulateEnvironment(CrashReport report) {
 		report.makeCategory("World Downloader Mod").addCrashSectionCallable("Info",
 			new Callable<String>() {
+				@Override
 				public String call() {
 					return WDL.getDebugInfo();
 				}

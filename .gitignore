@@ -10,3 +10,5 @@
 !/net/minecraft/client/gui/GuiIngameMenu.java
 !/net/minecraft/client/multiplayer/WorldClient.java
 !/net/minecraft/client/network/NetHandlerPlayClient.java
+
+.DS_Store
