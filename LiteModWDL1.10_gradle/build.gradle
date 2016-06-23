@@ -20,17 +20,20 @@ buildscript {
         classpath 'org.spongepowered:mixingradle:0.4-SNAPSHOT'
     }
 }
+repositories {
+    mavenLocal()
+}
 
 apply plugin: 'net.minecraftforge.gradle.liteloader'
 apply plugin: 'org.spongepowered.mixin'
 
-version = "1.9.4a-beta1"
+version = "1.10a-beta1"
 group = "com.uyjulian.LiteModWDL" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "LiteModWDL"
 
 minecraft {
-    version = "1.9.4"
-    mappings = "snapshot_20160523"
+    version = "1.10"
+    mappings = "lala_custom"
     runDir = "run"
 }
 
@@ -48,7 +51,7 @@ mixin {
 litemod {
     json {
         name = "LiteModWDL"
-        mcversion = "1.9.4"
+        mcversion = "1.10"
         mixinConfigs += "mixins.LiteModWDL.json"
     }
 }

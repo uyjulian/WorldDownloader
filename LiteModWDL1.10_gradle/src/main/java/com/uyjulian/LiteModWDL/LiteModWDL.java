@@ -12,7 +12,7 @@ public class LiteModWDL implements LiteMod {
 
 	@Override
 	public String getVersion() {
-		return "1.9.4";
+		return "1.10";
 	}
 
 	@Override
