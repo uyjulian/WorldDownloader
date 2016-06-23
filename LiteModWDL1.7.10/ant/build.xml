@@ -2,7 +2,7 @@
 
 <!-- Build file based off Mumfrey's ExampleMod. Thanks Mumfrey! -->
 
-<project name="WorldDownloader" basedir="." default="main">
+<project name="LiteModWDL1.7.10" basedir="." default="main">
 	
 	<!-- Change this into the directory of the MCP folder. -->
 	<property name="mcp.dir"            location="/Users/julian/Documents/MinecraftModding/MCP1710" />
@@ -13,7 +13,7 @@
     <property name="mcversion"          value="1.7.10" />
     <property name="litemodversion"     value="1.7.10_04" />
     <property name="author"             value="uyjulian" />
-    <property name="project"            value="WorldDownloader" />
+    <property name="project"            value="LiteModWDL1.7.10" />
     <property name="md5set"             value="liteloader" />
 	
     <property name="eclipse.dir"        location="${mcp.dir}/eclipse" />
