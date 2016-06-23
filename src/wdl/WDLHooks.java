@@ -218,7 +218,7 @@ public class WDLHooks {
 			profiler.startSection("wdl.onChatMessage");
 			
 			//func_148915_c returns the IChatComponent.
-			String chatMessage = packet.func_148915_c().getUnformattedText();
+			String chatMessage = packet.getChatComponent().getUnformattedText();
 			
 			profiler.startSection("Core");
 			WDLEvents.onChatMessage(chatMessage);
@@ -325,7 +325,7 @@ public class WDLHooks {
 			
 			profiler.startSection("wdl.onBlockEvent");
 			
-			BlockPos pos = packet.func_179825_a();
+			BlockPos pos = packet.getBlockPosition();
 			Block block = packet.getBlockType();
 			int data1 = packet.getData1();
 			int data2 = packet.getData2();
@@ -358,6 +358,7 @@ public class WDLHooks {
 	public static void onCrashReportPopulateEnvironment(CrashReport report) {
 		report.makeCategory("World Downloader Mod").addCrashSectionCallable("Info",
 			new Callable<String>() {
+				@Override
 				public String call() {
 					return WDL.getDebugInfo();
 				}

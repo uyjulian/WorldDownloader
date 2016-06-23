@@ -289,13 +289,13 @@ public class GuiWDLGenerator extends GuiScreen {
 			super(GuiWDLGenerator.this);
 			
 			//field_146334_a = generator options
-			this.field_146334_a = WDL.worldProps.getProperty("GeneratorOptions", "");
+			this.chunkProviderSettingsJson = WDL.worldProps.getProperty("GeneratorOptions", "");
 		}
 
 		@Override
 		public void initGui() {
 			mc.displayGuiScreen(GuiWDLGenerator.this);
-			WDL.worldProps.setProperty("GeneratorOptions", this.field_146334_a);
+			WDL.worldProps.setProperty("GeneratorOptions", this.chunkProviderSettingsJson);
 		}
 		
 		@Override

@@ -1,0 +1,8 @@
+{
+    "name": "${ant.project.name}",
+    "mcversion": "${litemodversion}",
+    "revision": "${git.revision}",
+    "author": "${author}",
+    "description": "SOURCE CODE LOCATED AT https://github.com/uyjulian/WorldDownloader",
+    "classTransformerClasses": "com.uyjulian.LiteModWDL.EventTransformerWDL"
+}

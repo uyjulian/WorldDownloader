@@ -155,7 +155,7 @@ public class GuiWDLExtensions extends GuiScreen {
 					selectedModIndex = slotIndex;
 					
 					mc.getSoundHandler().playSound(
-							PositionedSoundRecord.createPositionedSoundRecord(
+							PositionedSoundRecord.create(
 									new ResourceLocation("gui.button.press"),
 									1.0F));
 					
@@ -221,9 +221,9 @@ public class GuiWDLExtensions extends GuiScreen {
 		}
 		
 		@Override
-		public void func_178039_p() {
+		public void handleMouseInput() {
 			if (mouseY < bottomLocation) {
-				super.func_178039_p();
+				super.handleMouseInput();
 			}
 		}
 	}
@@ -273,11 +273,11 @@ public class GuiWDLExtensions extends GuiScreen {
 		}
 		
 		@Override
-		public void func_178039_p() {
+		public void handleMouseInput() {
 			mouseY -= bottomLocation;
 			
 			if (mouseY > 0) {
-				super.func_178039_p();
+				super.handleMouseInput();
 			}
 			
 			mouseY += bottomLocation;
@@ -343,8 +343,8 @@ public class GuiWDLExtensions extends GuiScreen {
 	@Override
 	public void handleMouseInput() throws IOException {
 		super.handleMouseInput();
-		this.list.func_178039_p();
-		this.detailsList.func_178039_p();
+		this.list.handleMouseInput();
+		this.detailsList.handleMouseInput();
 	}
 	
 	@Override
@@ -357,10 +357,10 @@ public class GuiWDLExtensions extends GuiScreen {
 			return;
 		}
 		
-		if (list.func_148179_a(mouseX, mouseY, mouseButton)) {
+		if (list.mouseClicked(mouseX, mouseY, mouseButton)) {
 			return;
 		}
-		if (detailsList.func_148179_a(mouseX, mouseY, mouseButton)) {
+		if (detailsList.mouseClicked(mouseX, mouseY, mouseButton)) {
 			return;
 		}
 		super.mouseClicked(mouseX, mouseY, mouseButton);
@@ -370,10 +370,10 @@ public class GuiWDLExtensions extends GuiScreen {
 	protected void mouseReleased(int mouseX, int mouseY, int state) {
 		dragging = false;
 		
-		if (list.func_148181_b(mouseX, mouseY, state)) {
+		if (list.mouseReleased(mouseX, mouseY, state)) {
 			return;
 		}
-		if (detailsList.func_148181_b(mouseX, mouseY, state)) {
+		if (detailsList.mouseReleased(mouseX, mouseY, state)) {
 			return;
 		}
 		super.mouseReleased(mouseX, mouseY, state);

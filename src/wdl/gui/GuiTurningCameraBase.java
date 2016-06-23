@@ -73,7 +73,7 @@ public abstract class GuiTurningCameraBase extends GuiScreen {
 			WDL.minecraft.gameSettings.showDebugInfo = false;
 			WDL.minecraft.gameSettings.chatVisibility = EnumChatVisibility.HIDDEN;
 			// Gets the render view entity for minecraft.
-			this.oldRenderViewEntity = WDL.minecraft.func_175606_aa();
+			this.oldRenderViewEntity = WDL.minecraft.getRenderViewEntity();
 			
 			initializedCamera = true;
 		}
@@ -86,7 +86,7 @@ public abstract class GuiTurningCameraBase extends GuiScreen {
 		// if (this.mc.renderViewEntity == null) {
 		//     this.mc.renderViewEntity = this.mc.thePlayer;
 		// }
-		WDL.minecraft.func_175607_a(this.cam);
+		WDL.minecraft.setRenderViewEntity(this.cam);
 	}
 	
 	/**
@@ -195,6 +195,6 @@ public abstract class GuiTurningCameraBase extends GuiScreen {
 		WDL.minecraft.gameSettings.hideGUI = oldHideHud;
 		WDL.minecraft.gameSettings.showDebugInfo = oldShowDebug;
 		WDL.minecraft.gameSettings.chatVisibility = oldChatVisibility;
-		WDL.minecraft.func_175607_a(this.oldRenderViewEntity);
+		WDL.minecraft.setRenderViewEntity(this.oldRenderViewEntity);
 	}
 }

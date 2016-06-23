@@ -103,7 +103,7 @@ public class CapeHandler {
 				return;
 			}
 			
-			GameProfile profile = info.func_178845_a();
+			GameProfile profile = info.getGameProfile();
 			
 			if (capes.containsKey(profile.getId())) {
 				setPlayerCape(info, capes.get(profile.getId()));

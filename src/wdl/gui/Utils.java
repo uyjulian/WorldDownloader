@@ -142,7 +142,7 @@ class Utils {
 		
 		float textureSize = 32.0F;
 		wr.startDrawingQuads();
-		wr.func_178991_c(0x202020);  // Set color to #202020
+		wr.setColorOpaque_I(0x202020);  // Set color to #202020
 		wr.addVertexWithUV(0, bottom, 0, 0 / textureSize, 
 				bottom / textureSize);
 		wr.addVertexWithUV(right, bottom, 0, right / textureSize, 
@@ -184,7 +184,7 @@ class Utils {
 		WorldRenderer wr = t.getWorldRenderer();
 
 		//wr.func_178991_c sets the color.
-		//wr.func_178974_a sets the color and the alpha.
+		//wr.setColorRGBA_I sets the color and the alpha.
 		
 		//Box code is GuiSlot.overlayBackground
 		//Upper box
@@ -192,12 +192,12 @@ class Utils {
 
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		wr.startDrawingQuads();
-		wr.func_178974_a(0x404040, 255);
+		wr.setColorRGBA_I(0x404040, 255);
 		wr.addVertexWithUV(left, upperBoxEnd, 0.0D, 0.0D, upperBoxEnd
 				/ textureSize);
 		wr.addVertexWithUV(right, upperBoxEnd, 0.0D, right / textureSize,
 				upperBoxEnd / textureSize);
-		wr.func_178974_a(0x404040, 255);
+		wr.setColorRGBA_I(0x404040, 255);
 		wr.addVertexWithUV(right, top, 0.0D, right / textureSize, top
 				/ textureSize);
 		wr.addVertexWithUV(left, top, 0.0D, 0.0D, top / textureSize);
@@ -208,11 +208,11 @@ class Utils {
 
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		wr.startDrawingQuads();
-		wr.func_178974_a(0x404040, 255);
+		wr.setColorRGBA_I(0x404040, 255);
 		wr.addVertexWithUV(left, bottom, 0.0D, 0.0D, bottom / textureSize);
 		wr.addVertexWithUV(right, bottom, 0.0D, right / textureSize, bottom
 				/ textureSize);
-		wr.func_178974_a(0x404040, 255);
+		wr.setColorRGBA_I(0x404040, 255);
 		wr.addVertexWithUV(right, lowerBoxStart, 0.0D, right / textureSize,
 				lowerBoxStart / textureSize);
 		wr.addVertexWithUV(left, lowerBoxStart, 0.0D, 0.0D, lowerBoxStart
@@ -225,25 +225,25 @@ class Utils {
 				GL_ONE_MINUS_SRC_ALPHA, 0, 1);
 		GlStateManager.disableAlpha();
 		GlStateManager.shadeModel(GL_SMOOTH);
-		GlStateManager.func_179090_x();
+		GlStateManager.disableTexture2D();
 		wr.startDrawingQuads();
-		wr.func_178974_a(0, 0);
+		wr.setColorRGBA_I(0, 0);
 		wr.addVertexWithUV(left, upperBoxEnd + padding, 0.0D, 0.0D, 1.0D);
 		wr.addVertexWithUV(right, upperBoxEnd + padding, 0.0D, 1.0D, 1.0D);
-		wr.func_178974_a(0, 255);
+		wr.setColorRGBA_I(0, 255);
 		wr.addVertexWithUV(right, upperBoxEnd, 0.0D, 1.0D, 0.0D);
 		wr.addVertexWithUV(left, upperBoxEnd, 0.0D, 0.0D, 0.0D);
 		t.draw();
 		wr.startDrawingQuads();
-		wr.func_178974_a(0, 255);
+		wr.setColorRGBA_I(0, 255);
 		wr.addVertexWithUV(left, lowerBoxStart, 0.0D, 0.0D, 1.0D);
 		wr.addVertexWithUV(right, lowerBoxStart, 0.0D, 1.0D, 1.0D);
-		wr.func_178974_a(0, 0);
+		wr.setColorRGBA_I(0, 0);
 		wr.addVertexWithUV(right, lowerBoxStart - padding, 0.0D, 1.0D, 0.0D);
 		wr.addVertexWithUV(left, lowerBoxStart - padding, 0.0D, 0.0D, 0.0D);
 		t.draw();
 		
-		GlStateManager.func_179098_w();
+		GlStateManager.enableTexture2D();
 		GlStateManager.shadeModel(GL_FLAT);
 		GlStateManager.enableAlpha();
 		GlStateManager.disableBlend();
@@ -292,7 +292,7 @@ class Utils {
 	 */
 	public static void drawStringWithShadow(String s, int x, int y, int color) {
 		//func_175063_a is drawString, but adds a shadow.
-		mc.fontRendererObj.func_175063_a(s, x, y, color);
+		mc.fontRendererObj.drawStringWithShadow(s, x, y, color);
 	}
 }
 

@@ -191,7 +191,7 @@ public class GuiWDLChunkOverrides extends GuiScreen {
 				}
 				
 				mc.getSoundHandler().playSound(PositionedSoundRecord
-						.createPositionedSoundRecord(new ResourceLocation(
+						.create(new ResourceLocation(
 								"gui.button.press"), 1.0F));
 				break;
 			}

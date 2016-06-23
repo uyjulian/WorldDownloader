@@ -646,7 +646,7 @@ public class WDL {
 			// func_178779_a is a getter for the instance.
 			// Look inside of ThreadedFileIOBase.java for
 			// such a getter.
-			ThreadedFileIOBase.func_178779_a().waitForFinish();
+			ThreadedFileIOBase.getThreadedIOInstance().waitForFinish();
 		} catch (Exception e) {
 			throw new RuntimeException("Threw exception waiting for asynchronous IO to finish. Hmmm.", e);
 		}
@@ -1391,7 +1391,7 @@ public class WDL {
 		info.append("### CORE INFO\n\n");
 		info.append("WDL version: ").append(VERSION).append('\n');
 		info.append("Launched version: ")
-				.append(Minecraft.getMinecraft().func_175600_c()).append('\n');
+				.append(Minecraft.getMinecraft().getVersion()).append('\n');
 		info.append("Client brand: ")
 				.append(ClientBrandRetriever.getClientModName()).append('\n');
 		info.append("File location: ");
@@ -1546,7 +1546,7 @@ public class WDL {
 	public static String getMinecraftVersion() {
 		//Returns some session info used when making a HTTP request for resource packs.
 		//Only matters because X-Minecraft-Version is included.
-		Map<?, ?> map = Minecraft.func_175596_ai();
+		Map<?, ?> map = Minecraft.getSessionInfo();
 		if (map.containsKey("X-Minecraft-Version")) {
 			return (String) map.get("X-Minecraft-Version");
 		} else {
@@ -1560,7 +1560,7 @@ public class WDL {
 	public static String getMinecraftVersionInfo() {
 		String version = getMinecraftVersion();
 		// Gets the launched version (appears in F3)
-		String launchedVersion = Minecraft.getMinecraft().func_175600_c();
+		String launchedVersion = Minecraft.getMinecraft().getVersion();
 		String brand = ClientBrandRetriever.getClientModName();
 		
 		return String.format("Minecraft %s (%s/%s)", version,

@@ -232,12 +232,12 @@ public class WDLChunkLoader extends AnvilChunkLoader {
 			for (NextTickListEntry entry : updateList) {
 				NBTTagCompound entryTag = new NBTTagCompound();
 				ResourceLocation location = (ResourceLocation) Block.blockRegistry
-						.getNameForObject(entry.func_151351_a());
+						.getNameForObject(entry.getBlock());
 				entryTag.setString("i",
 						location == null ? "" : location.toString());
-				entryTag.setInteger("x", entry.field_180282_a.getX());
-				entryTag.setInteger("y", entry.field_180282_a.getY());
-				entryTag.setInteger("z", entry.field_180282_a.getZ());
+				entryTag.setInteger("x", entry.position.getX());
+				entryTag.setInteger("y", entry.position.getY());
+				entryTag.setInteger("z", entry.position.getZ());
 				entryTag.setInteger("t",
 						(int) (entry.scheduledTime - worldTime));
 				entryTag.setInteger("p", entry.priority);
