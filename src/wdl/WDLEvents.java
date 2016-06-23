@@ -9,7 +9,6 @@ import net.minecraft.entity.item.EntityMinecartChest;
 import net.minecraft.entity.item.EntityMinecartHopper;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.entity.passive.HorseArmorType;
 import net.minecraft.entity.passive.HorseType;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.AnimalChest;
@@ -411,7 +410,6 @@ public class WDLEvents {
 			saveName = "hopper";
 		} else if (WDL.windowContainer instanceof ContainerBeacon
 				&& te instanceof TileEntityBeacon) {
-			//func_180611_e returns the beacon's IInventory tileBeacon.
 			IInventory beaconInventory =
 					((ContainerBeacon)WDL.windowContainer).getTileEntity();
 			TileEntityBeacon savedBeacon = (TileEntityBeacon)te;

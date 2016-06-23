@@ -1,7 +1,6 @@
 package wdl;
 
 import java.util.List;
-import java.util.concurrent.Callable;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -20,6 +19,7 @@ import net.minecraft.network.play.server.SPacketChat;
 import net.minecraft.network.play.server.SPacketCustomPayload;
 import net.minecraft.network.play.server.SPacketMaps;
 import net.minecraft.profiler.Profiler;
+import net.minecraft.crash.ICrashReportDetail;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.storage.MapData;
@@ -200,7 +200,7 @@ public class WDLHooks {
 	}
 
 	/**
-	 * Called when {@link NetHandlerPlayClient#handleChat(S02PacketChat)} is
+	 * Called when {@link NetHandlerPlayClient#handleChat(SPacketChat)} is
 	 * called.
 	 * <br/>
 	 * Should be at the start of the method.
@@ -237,7 +237,7 @@ public class WDLHooks {
 	}
 
 	/**
-	 * Called when {@link NetHandlerPlayClient#handleMaps(S34PacketMaps)} is
+	 * Called when {@link NetHandlerPlayClient#handleMaps(SPacketMaps)} is
 	 * called.
 	 * <br/>
 	 * Should be at the start of the method.
@@ -269,7 +269,7 @@ public class WDLHooks {
 
 	/**
 	 * Called when
-	 * {@link NetHandlerPlayClient#handleCustomPayload(S3FPacketCustomPayload)}
+	 * {@link NetHandlerPlayClient#handleCustomPayload(SPacketCustomPayload)}
 	 * is called.
 	 * <br/>
 	 * Should be at the start of the method.
@@ -308,7 +308,7 @@ public class WDLHooks {
 
 	/**
 	 * Called when
-	 * {@link NetHandlerPlayClient#handleBlockAction(S24PacketBlockAction)} is
+	 * {@link NetHandlerPlayClient#handleBlockAction(SPacketBlockAction)} is
 	 * called.
 	 * <br/>
 	 * Should be at the start of the method.
@@ -355,7 +355,12 @@ public class WDLHooks {
 	 * @param report
 	 */
 	public static void onCrashReportPopulateEnvironment(CrashReport report) {
-		report.makeCategory("World Downloader Mod").addCrashSection("Info", WDL.getDebugInfo());
+		report.makeCategory("World Downloader Mod").setDetail("Info",
+			new ICrashReportDetail<String>() {
+				public String call() {
+					return WDL.getDebugInfo();
+				}
+			});
 	}
 
 	/**

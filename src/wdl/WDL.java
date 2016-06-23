@@ -37,8 +37,8 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ReportedException;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.MinecraftException;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.IChunkLoader;
@@ -71,11 +71,11 @@ public class WDL {
 	/**
 	 * Current version.  This should match the git tag for the current release.
 	 */
-	public static final String VERSION = "1.9.4a-beta1";
+	public static final String VERSION = "1.10a-beta1";
 	/**
 	 * The version of minecraft that this mod is installed on.
 	 */
-	public static final String EXPECTED_MINECRAFT_VERSION = "1.9.4";
+	public static final String EXPECTED_MINECRAFT_VERSION = "1.10";
 	/**
 	 * Owning username for the github repository to check for updates against.
 	 * 
@@ -1549,14 +1549,7 @@ public class WDL {
 	 * version; it is constant between profile names.
 	 */
 	public static String getMinecraftVersion() {
-		//Returns some session info used when making a HTTP request for resource packs.
-		//Only matters because X-Minecraft-Version is included.
-		Map<?, ?> map = Minecraft.getSessionInfo();
-		if (map.containsKey("X-Minecraft-Version")) {
-			return (String) map.get("X-Minecraft-Version");
-		} else {
-			return EXPECTED_MINECRAFT_VERSION;
-		}
+		return EXPECTED_MINECRAFT_VERSION;
 	}
 
 	/**
