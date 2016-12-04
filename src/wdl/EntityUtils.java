@@ -475,7 +475,7 @@ public class EntityUtils {
 	 * @return
 	 */
 	public static int getVanillaEntityRange(String type) {
-		return getVanillaEntityRange(EntityList.field_191308_b.getObject(new ResourceLocation(type))); 
+		return getVanillaEntityRange(EntityList.REGISTRY.getObject(new ResourceLocation(type))); 
 	}
 	
 	/**

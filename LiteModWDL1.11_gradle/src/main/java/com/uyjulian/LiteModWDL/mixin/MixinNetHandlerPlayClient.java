@@ -16,38 +16,6 @@ import net.minecraft.util.text.ITextComponent;
 
 @Mixin(NetHandlerPlayClient.class)
 public abstract class MixinNetHandlerPlayClient implements INetHandlerPlayClient {
-	@Inject(method="handleDisconnect", at=@At("HEAD"))
-	private void onHandleDisconnect(SPacketDisconnect p_147253_1_, CallbackInfo ci) {
-		/* WDL >>> */
-		if (wdl.WDL.downloading) {
-			wdl.WDL.stopDownload();
-
-			try {
-				Thread.sleep(2000L);
-			} catch (Exception var3) {
-				;
-			}
-		}
-
-		/* <<< WDL */
-        //more down here
-	}
-	@Inject(method="onDisconnect", at=@At("HEAD"))
-	private void onOnDisconnect(ITextComponent p_147231_1_, CallbackInfo ci) {
-		/* WDL >>> */
-		if (wdl.WDL.downloading) {
-			wdl.WDL.stopDownload();
-
-			try {
-				Thread.sleep(2000L);
-			} catch (Exception var3) {
-				;
-			}
-		}
-
-		/* <<< WDL */
-        //more down here
-	}
 	@Inject(method="handleChat", at=@At("RETURN"))
 	private void onHandleChat(SPacketChat p_147251_1_, CallbackInfo ci) {
 		//more up here

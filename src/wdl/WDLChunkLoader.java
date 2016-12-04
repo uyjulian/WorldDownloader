@@ -163,7 +163,7 @@ public class WDLChunkLoader extends AnvilChunkLoader {
 		compound.setLong("InhabitedTime", chunk.getInhabitedTime());
 		ExtendedBlockStorage[] blockStorageArray = chunk.getBlockStorageArray();
 		NBTTagList blockStorageList = new NBTTagList();
-		boolean hasNoSky = !world.provider.getHasNoSky();
+		boolean hasNoSky = !world.provider.hasNoSky();
 
 		for (ExtendedBlockStorage blockStorage : blockStorageArray) {
 			if (blockStorage != null) {
